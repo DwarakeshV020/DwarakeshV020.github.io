@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dwarakesh Venkatesh – Amber Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    :root {
+      --bg-color: #fdfdfd;
+      --text-color: #222;
+      --accent-color: #5e60ce;
+      --link-hover: #3a0ca3;
+      --font-stack: "Segoe UI", Roboto, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: var(--bg-color);
+      color: var(--text-color);
+      font-family: var(--font-stack);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 2rem;
+    }
+
+    .container {
+      max-width: 600px;
+      text-align: center;
+      padding: 2rem;
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+      background: white;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: var(--accent-color);
+    }
+
+    p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      margin-bottom: 2rem;
+    }
+
+    a.button-link {
+      display: inline-block;
+      text-decoration: none;
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+      border-radius: 8px;
+      background-color: var(--accent-color);
+      color: white;
+      transition: background 0.3s ease;
+    }
+
+    a.button-link:hover {
+      background-color: var(--link-hover);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Dwarakesh Venkatesh</h1>
+    <p>
+      Amber is a modular, intent-driven chatbot framework that replaces rigid, button-based interfaces with flexible natural language interaction, supporting deeply nested intent hierarchies.
+    </p>
+    <a class="button-link" href="https://huggingface.co/spaces/Dwarakesh-V/Amber-Portfolio" target="_blank" rel="noopener noreferrer">
+      Visit My Portfolio
+    </a>
+  </div>
+</body>
+</html>
