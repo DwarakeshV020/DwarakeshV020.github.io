@@ -2,15 +2,26 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Dwarakesh Venkatesh – Amber Portfolio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dwarakesh Venkatesh | Portfolio</title>
+  <meta name="description" content="Computer Science undergraduate specializing in system design, Python development, and applied machine learning.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     :root {
-      --bg-color: #fdfdfd;
-      --text-color: #222;
-      --accent-color: #5e60ce;
-      --link-hover: #3a0ca3;
-      --font-stack: "Segoe UI", Roboto, sans-serif;
+      --bg-dark: #0a0a0b;
+      --bg-gradient: radial-gradient(circle at 15% 50%, rgba(76, 29, 149, 0.15), transparent 25%),
+                     radial-gradient(circle at 85% 30%, rgba(29, 78, 216, 0.15), transparent 25%);
+      --surface: rgba(255, 255, 255, 0.03);
+      --surface-hover: rgba(255, 255, 255, 0.08);
+      --surface-border: rgba(255, 255, 255, 0.08);
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --accent: #8b5cf6;
+      --accent-glow: rgba(139, 92, 246, 0.4);
+      --primary: #3b82f6;
     }
 
     * {
@@ -20,62 +31,507 @@
     }
 
     body {
-      background: var(--bg-color);
-      color: var(--text-color);
-      font-family: var(--font-stack);
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      background-color: var(--bg-dark);
+      background-image: var(--bg-gradient);
+      color: var(--text-main);
+      font-family: 'Outfit', sans-serif;
+      line-height: 1.6;
+      overflow-x: hidden;
       min-height: 100vh;
-      padding: 2rem;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    a:hover {
+      color: var(--primary);
     }
 
     .container {
-      max-width: 600px;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 4rem 2rem;
+    }
+
+    /* Hero Section */
+    .hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       text-align: center;
-      padding: 2rem;
-      border-radius: 16px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-      background: white;
+      margin-bottom: 5rem;
+      animation: fadeIn 1s ease-out;
+    }
+
+    .profile-img {
+      width: 180px;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 20%;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 0 30px var(--accent-glow);
+      border: 2px solid var(--surface-border);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    .profile-img:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 40px var(--accent-glow);
     }
 
     h1 {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-      color: var(--accent-color);
+      font-size: 3.5rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      background: linear-gradient(to right, #e2e8f0, #94a3b8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      letter-spacing: -0.02em;
     }
 
-    p {
+    .subtitle {
+      font-size: 1.25rem;
+      color: var(--accent);
+      font-weight: 500;
+      margin-bottom: 1.5rem;
+    }
+
+    .bio {
+      max-width: 700px;
+      color: var(--text-muted);
       font-size: 1.1rem;
-      line-height: 1.6;
       margin-bottom: 2rem;
     }
 
-    a.button-link {
-      display: inline-block;
-      text-decoration: none;
-      padding: 0.75rem 1.5rem;
-      font-size: 1rem;
-      border-radius: 8px;
-      background-color: var(--accent-color);
-      color: white;
-      transition: background 0.3s ease;
+    .social-links {
+      display: flex;
+      gap: 1.5rem;
     }
 
-    a.button-link:hover {
-      background-color: var(--link-hover);
+    .social-links a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 45px;
+      height: 45px;
+      border-radius: 12px;
+      background: var(--surface);
+      border: 1px solid var(--surface-border);
+      color: var(--text-main);
+      font-size: 1.2rem;
+      transition: all 0.3s ease;
+    }
+
+    .social-links a:hover {
+      background: var(--surface-hover);
+      transform: translateY(-3px);
+      border-color: var(--accent);
+      color: var(--accent);
+      box-shadow: 0 4px 20px rgba(139, 92, 246, 0.2);
+    }
+
+    /* Section Headers */
+    .section-title {
+      font-size: 2rem;
+      font-weight: 600;
+      margin-bottom: 2rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .section-title::after {
+      content: '';
+      height: 1px;
+      flex-grow: 1;
+      background: linear-gradient(to right, var(--surface-border), transparent);
+    }
+
+    /* Skills Section */
+    .skills-wrapper {
+      margin-bottom: 5rem;
+    }
+
+    .skills-category {
+      margin-bottom: 1.5rem;
+    }
+
+    .skills-category h3 {
+      font-size: 1.1rem;
+      color: var(--text-main);
+      margin-bottom: 1rem;
+      font-weight: 500;
+    }
+
+    .skills-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+    }
+
+    .skill-tag {
+      background: var(--surface);
+      border: 1px solid var(--surface-border);
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      transition: all 0.3s ease;
+    }
+
+    .skill-tag:hover {
+      background: rgba(139, 92, 246, 0.1);
+      border-color: var(--accent);
+      color: var(--text-main);
+      transform: translateY(-2px);
+    }
+
+    /* Projects Grid */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+      margin-bottom: 5rem;
+    }
+
+    .project-card {
+      background: var(--surface);
+      border: 1px solid var(--surface-border);
+      border-radius: 16px;
+      padding: 2rem;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .project-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(800px circle at var(--mouse-x, 0) var(--mouse-y, 0), rgba(139, 92, 246, 0.08), transparent 40%);
+      opacity: 0;
+      transition: opacity 0.5s ease;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .project-card:hover::before {
+      opacity: 1;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      border-color: rgba(139, 92, 246, 0.4);
+    }
+
+    .project-card > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .project-title {
+      font-size: 1.4rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: #fff;
+    }
+
+    .project-desc {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-bottom: 1.5rem;
+      flex-grow: 1;
+    }
+
+    .project-tech {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .tech-tag {
+      font-size: 0.8rem;
+      color: var(--text-main);
+      background: rgba(59, 130, 246, 0.15);
+      border: 1px solid rgba(59, 130, 246, 0.2);
+      padding: 0.25rem 0.6rem;
+      border-radius: 4px;
+    }
+
+    .project-links {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .project-links a {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--text-main);
+      padding: 0.5rem 1rem;
+      background: var(--surface);
+      border-radius: 6px;
+      transition: all 0.2s ease;
+    }
+
+    .project-links a:hover {
+      background: var(--accent);
+      color: #fff;
+    }
+
+    /* Experience / Achievements */
+    .timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      margin-bottom: 5rem;
+    }
+
+    .timeline-item {
+      display: flex;
+      gap: 1.5rem;
+      background: var(--surface);
+      border: 1px solid var(--surface-border);
+      padding: 1.5rem;
+      border-radius: 12px;
+      transition: all 0.3s ease;
+    }
+
+    .timeline-item:hover {
+      border-color: rgba(255, 255, 255, 0.15);
+      background: var(--surface-hover);
+      transform: translateX(10px);
+    }
+
+    .timeline-icon {
+      flex-shrink: 0;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: rgba(139, 92, 246, 0.1);
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+    }
+
+    .timeline-content h4 {
+      font-size: 1.1rem;
+      color: #fff;
+      margin-bottom: 0.3rem;
+    }
+
+    .timeline-content p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 2rem 0;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      border-top: 1px solid var(--surface-border);
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      h1 { font-size: 2.5rem; }
+      .container { padding: 2rem 1rem; }
+      .timeline-item { flex-direction: column; gap: 1rem; }
+      .timeline-item:hover { transform: translateY(-5px); }
     }
   </style>
 </head>
 <body>
+
   <div class="container">
-    <h1>Dwarakesh Venkatesh</h1>
-    <p>
-      Amber is a modular, intent-driven chatbot framework that replaces rigid, button-based interfaces with flexible natural language interaction, supporting deeply nested intent hierarchies.
-    </p>
-    <a class="button-link" href="https://huggingface.co/spaces/Dwarakesh-V/Amber-Portfolio" target="_blank" rel="noopener noreferrer">
-      Visit My Portfolio
-    </a>
+    <header class="hero">
+      <img src="professional_sqr.png" alt="Dwarakesh Venkatesh" class="profile-img">
+      <h1>Dwarakesh Venkatesh</h1>
+      <div class="subtitle">Computer Science Undergraduate</div>
+      <p class="bio">
+        Passionate about system design, Python development, and applied machine learning. Experienced in designing scalable, reliable systems and skilled at decomposing complex problems into well-structured components.
+      </p>
+      <div class="social-links">
+        <a href="mailto:vdwarakesh0211@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+        <a href="https://linkedin.com/in/vdwarakesh" aria-label="LinkedIn" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://github.com/Dwarakesh-V" aria-label="GitHub" target="_blank"><i class="fab fa-github"></i></a>
+      </div>
+    </header>
+
+    <section class="skills-wrapper">
+      <h2 class="section-title">Technical Expertise</h2>
+      
+      <div class="skills-category">
+        <h3>Languages</h3>
+        <div class="skills-grid">
+          <div class="skill-tag">Python (Primary)</div>
+          <div class="skill-tag">C++</div>
+          <div class="skill-tag">JavaScript / TypeScript</div>
+          <div class="skill-tag">Bash</div>
+        </div>
+      </div>
+
+      <div class="skills-category">
+        <h3>Libraries, Frameworks & Tools</h3>
+        <div class="skills-grid">
+          <div class="skill-tag">TensorFlow</div>
+          <div class="skill-tag">PyTorch</div>
+          <div class="skill-tag">React / Vite</div>
+          <div class="skill-tag">X11</div>
+          <div class="skill-tag">Git</div>
+          <div class="skill-tag">Docker</div>
+          <div class="skill-tag">FastAPI</div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="section-title">Featured Projects</h2>
+      <div class="projects-grid">
+        
+        <div class="project-card">
+          <h3 class="project-title">Remote Linux GUI Automation Sandbox</h3>
+          <p class="project-desc">
+            A VM-based automation sandbox using KVM-accelerated QEMU and AT-SPI accessibility introspection. Features snapshot-backed filesystem rollback for zero host persistence and human-like xdotool simulation over untrusted GUI workflows with zero application-specific code.
+          </p>
+          <div class="project-tech">
+            <span class="tech-tag">Linux</span>
+            <span class="tech-tag">QEMU/KVM</span>
+            <span class="tech-tag">AT-SPI2</span>
+            <span class="tech-tag">Llama 3.2</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/Dwarakesh-V/vm-at-spi-ssh" target="_blank"><i class="fab fa-github"></i> Source Code</a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <h3 class="project-title">DAG-Based Semantic Intent Routing Engine</h3>
+          <p class="project-desc">
+            An intent routing engine for multi-intent NL queries utilizing sentence embeddings. Achieved ~91% accuracy and reduced misrouting by ~40% relative to rule-based routers using dynamic confidence thresholds and context-memory backtracking.
+          </p>
+          <div class="project-tech">
+            <span class="tech-tag">Python</span>
+            <span class="tech-tag">PyTorch</span>
+            <span class="tech-tag">FastAPI</span>
+            <span class="tech-tag">React</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/Dwarakesh-V/semantic-analyzer" target="_blank"><i class="fab fa-github"></i> Source Code</a>
+            <a href="https://huggingface.co/spaces/Dwarakesh-V/semantic-analyzer" target="_blank"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <h3 class="project-title">Interactive Graph Creation Platform</h3>
+          <p class="project-desc">
+            Responsive real-time graph modeling and algorithm visualization web app. Render latency &lt;10ms for complex layouts with drag-and-drop support, persistent state management, and educational DFS/BFS visualizers.
+          </p>
+          <div class="project-tech">
+            <span class="tech-tag">JavaScript (D3.js)</span>
+            <span class="tech-tag">React</span>
+            <span class="tech-tag">TypeScript</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/Dwarakesh-V/arx-net" target="_blank"><i class="fab fa-github"></i> Source Code</a>
+            <a href="https://dwarakesh-v.github.io/arx-net/" target="_blank"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section>
+      <h2 class="section-title">Achievements & Research</h2>
+      <div class="timeline">
+        
+        <div class="timeline-item">
+          <div class="timeline-icon">
+            <i class="fas fa-trophy"></i>
+          </div>
+          <div class="timeline-content">
+            <h4>Top 20 - ICSRF Hackathon 2025</h4>
+            <p>Recognized for code innovation and systems development among a large pool of competitive teams.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-icon">
+            <i class="fas fa-car-side"></i>
+          </div>
+          <div class="timeline-content">
+            <h4>Visteon Automotive Tech Scholar</h4>
+            <p>Selected from a highly competitive pool of over 13,000+ applicants for this prestigious program.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-icon">
+            <i class="fas fa-microscope"></i>
+          </div>
+          <div class="timeline-content">
+            <h4>Web Data Extraction for Hyper-personalized Experience</h4>
+            <p>Ongoing research from a GenAI perspective under the advisement of Dr. Sudhir Kumar Patnaik.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section>
+      <h2 class="section-title">Education</h2>
+      <div class="timeline">
+        <div class="timeline-item" style="flex-direction: row;">
+          <div class="timeline-icon">
+            <i class="fas fa-graduation-cap"></i>
+          </div>
+          <div class="timeline-content">
+            <h4>Amrita Vishwa Vidyapeetham, Coimbatore</h4>
+            <p>B.Tech in Computer Science & Engineering (Present) • <strong>CGPA: 8.52</strong></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
   </div>
+
+  <footer>
+    <p>&copy; 2026 Dwarakesh Venkatesh. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Add subtle mouse-following hover effect to project cards
+    document.querySelectorAll('.project-card').forEach(card => {
+      card.addEventListener('mousemove', e => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        card.style.setProperty('--mouse-x', `${x}px`);
+        card.style.setProperty('--mouse-y', `${y}px`);
+      });
+    });
+  </script>
 </body>
 </html>
